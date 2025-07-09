@@ -238,7 +238,7 @@ func (s *SimData) getSachaufwandProduktion() {
 }
 
 func (s *SimData) getMaterialaufwand() {
-	// [Stufe]map[Jahr]Wert – nur für Öko- und Qualitätsstufen 1 & 2
+	// Stufe = map[Jahr]Wert – nur für Öko- und Qualitätsstufen 1 & 2
 	StückMaterialaufwandStufenÖkoUndQualität := map[int]map[int]float64{
 		1: { // Ökologiestufe 1, Qualitätsstufe 1
 			10: 39.00,

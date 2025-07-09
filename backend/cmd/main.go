@@ -15,7 +15,7 @@ func main() {
 
 	// Not needed since go 1.5:
 	// https://www.soroushjp.com/2015/02/07/go-concurrency-is-not-parallelism-real-world-lessons-with-monte-carlo-simulations/
-	//runtime.GOMAXPROCS(runtime.NumCPU())
+	// runtime.GOMAXPROCS(runtime.NumCPU())
 
 	if !utils.IsRunningInDocker() {
 		err := godotenv.Load("backend.env")
@@ -24,10 +24,8 @@ func main() {
 		}
 	}
 
-	// Create server
 	e := echo.New()
 
-	// Middleware
 	if utils.GetEnvBool("IS_DEVELOPMENT", true) {
 		e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
 			AllowOrigins: []string{"*"},
@@ -49,9 +47,7 @@ func main() {
 	// Inserting into an db is to slow and takes to much space to be viable
 	// TODO: use an simulation seed instead to save the simulation and to re run it on the fly
 
-	// Define routes
 	e.POST("/restapi/sim/run", routes.RunSimulation)
 
-	// Start server
 	e.Logger.Fatal(e.Start(utils.GetEnvString("PORT", "0.0.0.0:4000")))
 }

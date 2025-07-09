@@ -39,7 +39,6 @@ func (m *MongoDB) InsertSimulationsInDB(sims []simulation.SimResults) error {
 	// The speed is improved by disabling the insert order
 	opts := options.InsertMany().SetOrdered(false)
 
-	// Uses an error group as a way to return errors from a go function
 	var eg errgroup.Group
 
 	for batchStart := 0; batchStart < simAmount; batchStart += batchSize {
@@ -49,7 +48,6 @@ func (m *MongoDB) InsertSimulationsInDB(sims []simulation.SimResults) error {
 			batchEnd = simAmount
 		}
 
-		// starts a go routine that can return errors
 		eg.Go(func() error {
 			_, err := collection.InsertMany(context.TODO(), sims[batchStart:batchEnd], opts)
 			if err != nil {

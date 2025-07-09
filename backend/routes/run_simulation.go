@@ -156,7 +156,6 @@ func RunSimulation(c echo.Context) error {
 		batchSize := utils.CalculateOptimalBatchSizeForCPUTasks(simulationSteps)
 		simResults := runMonteCarloSim(simulationSteps, defaultSimInput, batchSize)
 
-		// reports the time that the Monte Carlo Simulation took
 		c.Logger().Print("Simulation took:" + time.Now().Sub(timeStart).String())
 
 		var resultStück []float64

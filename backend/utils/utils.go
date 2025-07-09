@@ -13,7 +13,7 @@ import (
 func GetEnvBool(key string, defaultValue bool) bool {
 	envString, exist := os.LookupEnv(key)
 	if !exist {
-		log.Printf("Environment variable %s not set using default: %s", key, strconv.FormatBool(defaultValue))
+		log.Printf("Environment variable %s was not set. Using value: %s for it instead", key, strconv.FormatBool(defaultValue))
 		return defaultValue
 	}
 	envBool, err := strconv.ParseBool(envString)
@@ -27,7 +27,7 @@ func GetEnvBool(key string, defaultValue bool) bool {
 func GetEnvString(key string, defaultValue string) string {
 	envString, exist := os.LookupEnv(key)
 	if !exist {
-		log.Printf("Environment variable %s not set using default: %s", key, defaultValue)
+		log.Printf("Environment variable %s was not set. Using value: %s for it instead", key, defaultValue)
 		return defaultValue
 	}
 	return envString
@@ -72,7 +72,6 @@ func PrintSelbstkostenTableYear14(writer io.Writer, simData simulation.SimData) 
 	steuern := simData.Results.Steueraufwand / simData.Results.AbsatzmengeGesamt
 	total := simData.Results.Selbstkosten / simData.Results.AbsatzmengeGesamt
 
-	// Expected values
 	expected := simulation.ExpectedValuesYear14()
 
 	// Calculates the percentage error

@@ -102,7 +102,7 @@ func ExpectedValuesYear14() ResultsYear {
 	}
 }
 
-func initYear11() SimInput {
+func InitYear11() SimInput {
 	AnzahlMaschinenJahr9 := 24
 	AnzahlMaschinenJahr11 := 3
 	AnzahlProduktionsräume := 3
@@ -169,7 +169,7 @@ func initYear11() SimInput {
 	return simInput
 }
 
-func initYear10() SimInput {
+func InitYear10() SimInput {
 	Jahr := 10
 	AnzahlMaschinen := 24
 	AnzahlProduktionsräume := 3
