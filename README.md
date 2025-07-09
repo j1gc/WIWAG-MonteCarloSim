@@ -11,7 +11,7 @@ The goal of the game is to give students a better understanding of business econ
 
 ## Motivation
 
-It was part of an initiative, started by me, to transform our company motto from Facebook’s original:
+This project was part of an initiative, started by me, to transform our company motto from Facebook’s original:
 
 > _Move fast and break things_
 
